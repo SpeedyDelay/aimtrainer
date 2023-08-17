@@ -7,6 +7,16 @@ let start="https://speedydelay.github.io/discord"
 var w = window.innerWidth;
 var h = window.innerHeight;
 let result=document.getElementById("result")
+let restart=document.getElementById("restart")
+let mainpage=document.getElementById("mainpage")
+
+
+mainpage.addEventListener("click",function(){
+    window.location.replace("index.html")
+})
+restart.addEventListener("click",function(){
+    window.location.reload()
+})
 button.addEventListener("click",function(){
     if(isAlive===true){
         if (counter===1){
@@ -28,9 +38,11 @@ button.addEventListener("click",function(){
             const end =Date.now()
             const timeELapsed=(end-start)/1000
             console.log(timeELapsed,"elapsed")
-            console.log("average reaction time:",timeELapsed/20)
+            console.log("average reaction time:",timeELapsed/19)
             button.style.display="none"
             result.textContent="average reaction time:"+timeELapsed/20
+            mainpage.style.display="block"
+            restart.style.display="block"
     }
     }
     

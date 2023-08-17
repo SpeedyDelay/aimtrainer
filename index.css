@@ -13,8 +13,10 @@ div{
     background-color: 7776BC;
     text-align: center;
     justify-content: center;
+    display: flex;
     font-size: 1rem;
-    padding-top: 1.25rem;
+    padding-top: 1rem;
+    transition:  0.3s;
     
 }
 body{
@@ -27,4 +29,19 @@ div:hover{
 }
 h1{
     text-align: center;
+}
+.restart{
+width: auto;
+height: auto;
+padding: 1rem;
+margin: auto 40%;
+}
+.mainpage{
+margin: auto 40%;
+margin-top: 2rem ;
+
+
+padding: 1rem;
+width: auto;
+height: auto;
 }
