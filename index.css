@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.clicker2:hover{
+    background-color: greenyellow;
+    
+}
+span{
+    color: greenyellow;
+}
 div{
-    border-radius: 2rem;
-    width: 4rem;
-    height: 4rem;
+    border-radius: 2em;
+    width: 4em;
+    height: 4em;
     border: solid;
     box-sizing: border-box;
     user-select: none;
@@ -14,9 +21,10 @@ div{
     text-align: center;
     justify-content: center;
     display: flex;
-    font-size: 1rem;
-    padding-top: 1rem;
+    font-size: 1em;
+    padding-top: 1em;
     transition:  0.3s;
+
     
 }
 body{

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aim Trainer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1 id="result">Make the Box <span> Green</span></h1>
+    <div style="position: absolute; transition: 4s;" id="clicker" class="clicker2">Start</div>
+    <h1 id="result"></h1>
+    <div style="display: none;" class="restart" id="restart">restart</div>
+    <div style="display: none;" class="mainpage" id="mainpage">mainpage</div>
+
+    <script>
+        let restart=document.getElementById("restart")
+        let mainpage=document.getElementById("mainpage")
+        let isalive = false;
+        let log = [];
+        let oneoffour = 0;
+        const buttonEl = document.getElementById("clicker");
+
+        // Function to move the element to a random position
+        function timer(){
+            Date.now
+        }
+        function moveElement() {
+            if (!isalive) {
+                return;
+            }
+
+            console.log(log);
+            let lastNumber = log[log.length - 1];
+
+            do {
+                oneoffour = Math.floor(Math.random() * 4) + 1;
+            } while (oneoffour === lastNumber);
+
+            log.push(oneoffour);
+            console.log(oneoffour);
+
+            var w = window.innerWidth * 0.8;
+            var h = window.innerHeight * 0.8;
+
+            if (oneoffour === 1) {
+                buttonEl.style.right = `${w}px`;
+                buttonEl.style.top = "20vh";
+            } else if (oneoffour === 2) {
+                buttonEl.style.right = `${20}vh`;
+                buttonEl.style.top = "20vh";
+            } else if (oneoffour === 3) {
+                buttonEl.style.right = `${20}vh`;
+                buttonEl.style.top = `${h}px`;
+            } else if (oneoffour === 4) {
+                buttonEl.style.right = `${w}px`;
+                buttonEl.style.top = `${h}px`;
+            }
+
+            // Schedule the next movement
+            setTimeout(moveElement, 400); // Move the element every 4 seconds
+        }
+
+        // Event listener to start the game
+        buttonEl.addEventListener("click", function () {
+           buttonEl.textContent="Hover"
+           if(isalive===false){
+            isalive = true;
+            moveElement(); // Start moving the element
+           } 
+        });
+        let hoverTimer;
+
+
+
+    const resultEl=document.getElementById("result")
+    buttonEl.addEventListener('mouseover', () => {
+        if(isalive===true){
+            hoverTimer = setTimeout(() => {
+        // The user has hovered over the div for 5 seconds
+       isalive=false
+       if(isalive===false){
+        resultEl.textContent="Congrats You Did 💀"
+       }
+       buttonEl.style.display="none"
+       restart.style.display="block"
+       mainpage.style.display="block"
+       mainpage.addEventListener("click",function(){
+    window.location.replace("index.html")
+})
+restart.addEventListener("click",function(){
+    window.location.reload()
+})
+      }, 500); // 5000 milliseconds = 5 seconds
+        }
+    
+    });
+
+    buttonEl.addEventListener('mouseout', () => {
+      clearTimeout(hoverTimer); // Clear the timer if the user moves the cursor out of the div
+    });
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4119332856539660"
+     crossorigin="anonymous"></script>
+     
+</body>
+</html>
